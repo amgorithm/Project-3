@@ -17,7 +17,8 @@ body {
   text-decoration: underline;
 }
 
-.homepage-button:hover, .user-details:hover {
+.homepage-button:hover,
+.user-details:hover {
   background-color: #dbdbdb;
 }
 
@@ -47,7 +48,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .blogs-side {
@@ -73,21 +73,16 @@ body {
 }
 
 .post-settings {
-
   display: flex;
   justify-content: space-around;
   width: 100%;
   padding-top: 15px;
-
 }
-
-
 
 .tags {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 li {
