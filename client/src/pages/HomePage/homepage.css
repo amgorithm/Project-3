@@ -17,7 +17,7 @@ body {
   text-decoration: underline;
 }
 
-button:hover, .user-details:hover {
+.homepage-button:hover, .user-details:hover {
   background-color: #dbdbdb;
 }
 
