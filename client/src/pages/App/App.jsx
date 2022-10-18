@@ -44,15 +44,7 @@ function App() {
         <Route exact path="/about" element={<AboutPage />} />
         <Route exact path="/profile/:userID" element={<Profile />} />
         <Route exact path="/profile/:userID/edit" element={<ProfileEdit />} />
-        <Route
-          exact
-          path="/profile/:userID/blogs"
-          element={
-            <ProtectedRoute>
-              <UserBlogs />
-            </ProtectedRoute>
-          }
-        />
+        <Route exact path="/profile/:userID/blogs" element={<UserBlogs />} />
         <Route exact path="/blog/new" element={<CreateBlogPage />} />
         <Route exact path="/blog/edit/:blogID" element={<EditBlogPage />} />
         {/* <Route exact path="/blog/:blogID" element={} /> */}

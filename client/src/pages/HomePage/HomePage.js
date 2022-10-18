@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./HomePage.css";
+import "./homepage.css";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
   let [tags, setTags] = useState([]);
