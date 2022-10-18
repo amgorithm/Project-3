@@ -92,7 +92,7 @@ function CreateBlogPage() {
   return (
     <> { user ?
       
-      <form className='form-container' onSubmit={handleSubmit} encType="multipart/form-data" >
+      <form className='create-form-container' onSubmit={handleSubmit} encType="multipart/form-data" >
         <h2 className='main-header' >Create New Blog</h2>
         <label>Title <span>*</span></label>
         <input name='title' value={blog.title} onChange={handleChange} onBlur={blurHandler} spellCheck="false" maxLength={50} className="title-input"/>
