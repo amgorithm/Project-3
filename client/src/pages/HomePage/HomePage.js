@@ -70,18 +70,37 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>HomePage</h1>
       <div className="main-flex">
         <main className="blogs-feed">
           {blogs.map((post) =>
             tags.some((el) => post.tags.includes(el)) ? (
               <article className="article-post" key={post._id}>
+                <Link to={`/profile/${post.author._id}`}>
+                  <div className="user-details">
+                    <img
+                      src={
+                        post.author.image
+                          ? post.author.image
+                          : require("../../images/default-user.png")
+                      }
+                      alt="profile pic"
+                    />
+                    <div className="user-details-2">
+                      <p>{post.author.name}</p>
+                      <p>Joined: {post.author.createdAt.substring(0, 10)}</p>
+                    </div>
+                  </div>
+                </Link>
+
                 <h2>{post.title}</h2>
-                <img src={post.image} alt={post.title} />
+                {post.image ? <img src={post.image} alt={post.title} /> : null}
                 <p>{post.description}</p>
                 <div className="post-settings">
-                  <p>Posted on: {post.createdAt}</p>
-                  <h2>Tags:</h2>
+                  <p>
+                    Posted on: {post.createdAt.substring(0, 10)}, at{" "}
+                    {post.createdAt.substring(12, 16)}
+                  </p>
+                  <p>Tags:</p>
                   <ul className="tags">
                     {post.tags.map((tag) => (
                       <li key={tag}>
