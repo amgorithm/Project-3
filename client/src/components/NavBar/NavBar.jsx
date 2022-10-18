@@ -46,9 +46,6 @@ const NavBar = () => {
   return (
     <div className="navBar">
       <div className="navBar-left">
-        <Link to="/about" style={{ color: "#BCBCBC" }}>
-          <h2 className="about">About</h2>
-        </Link>
         {user ? (
           <Link to="/blog/new" style={{ color: "#BCBCBC" }}>
             <h2 className="create-blog">Create</h2>

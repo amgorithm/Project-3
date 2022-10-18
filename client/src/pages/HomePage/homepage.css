@@ -2,12 +2,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-h2 {
+.homepage-title {
   font-size: 25px;
   font-weight: bold;
 }
 
-button {
+.homepage-button {
   background-color: white;
   padding: 5px;
   border: none;
