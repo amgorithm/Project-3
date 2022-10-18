@@ -1,34 +1,84 @@
-// import { useParams } from "react-router-dom"
-// // import userService from "../../utils/userService.js"
-// import React from "react";
-// import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getUserBlog } from "../../utils/blogService";
+import HTMLReactParser from "html-react-parser";
+import useUser from "../../hooks/useUser";
+import "./UserBlogs.css";
 
-// import TokenService from '../../utils/tokenService';
+function UserBlogs() {
+  const { user } = useUser();
 
-// export default function UserBlogs() {
+  const [userBlogs, setUserBlogs] = useState();
+  const { userID } = useParams();
 
-//     const [user, setUser] = React.useState(null)
+  useEffect(() => {
+    if (!userID) {
+      return;
+    }
 
-//     console.log(TokenService.getUserFromToken().blogs)
-//     const id = useParams().id
-//     let fetchUser = () => {
-//         console.log("Reached fetchUser function!")
-//         console.log(id)
-//         let res = TokenService.getUserFromToken()
-        
-//         console.log(res);
-//         setUser(res)
-//     }
+    async function getUserBlogs() {
+      const blog = await getUserBlog(userID);
+      setUserBlogs(blog);
+      console.log("user blogs data ->", blog);
+    }
+    getUserBlogs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userID]);
 
-//     React.useEffect(() => {
-//         fetchUser()
-//      })
-    
-//     return (
-//         user ? ( 
-//             user.blogs ? 
-//             (<ul>{user.blogs.map(((blog) =>(<Link to={`/detail/${blog._id}`}><li className="message is-link" key={blog._id}>{blog.title}</li></Link>)))}</ul>
-//             )
-//         :null ): null
-//     )
-// }
+  return (
+    <section>
+      {userBlogs ? (
+        <>
+          <div key={userBlogs._id} className="blogs-title">
+            <h3>
+              Blogs by{" "}
+              <Link
+                to={`/profile/${userBlogs._id}`}
+                style={{
+                  color: "#4a4a4a",
+                  textDecoration: "underline",
+                  textDecorationColor: "#fa9500",
+                }}
+              >
+                {" "}
+                {userBlogs.name}{" "}
+              </Link>
+            </h3>
+          </div>
+          <div className="user-blogs-preview">
+            {userBlogs.blogs
+              .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+              .map((b) => (
+                <div key={b._id} className="user-blogs-card">
+                  <div className="user-blogs-title">
+                    <Link
+                      to={`/blogpost/detail/${b._id}`}
+                      style={{ color: "black" }}
+                    >
+                      <h3>{b.title}</h3>
+                    </Link>
+
+                    <p className="creation-date">{b.createdAt.split("T")[0]}</p>
+                  </div>
+
+                  <div className="user-blogs-description">
+                    {HTMLReactParser(b.description)}...{" "}
+                    <Link
+                      to={`/blogpost/detail/${b._id}`}
+                      style={{ color: "#fa9500" }}
+                    >
+                      Read more
+                    </Link>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </>
+      ) : (
+        <p>Loading, please wait.</p>
+      )}
+    </section>
+  );
+}
+
+export default UserBlogs;

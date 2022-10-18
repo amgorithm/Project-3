@@ -102,18 +102,36 @@ function Profile() {
                   .slice(0, 4)
                   .map((b) => (
                     <div className="blog-cards" key={b._id}>
-                      <Link to={`/blogpost/detail/${b._id}`}>
-                        <h4>{b.title}</h4>
-                      </Link>
+                      <div className="blog-title">
+                        <Link
+                          to={`/blogpost/detail/${b._id}`}
+                          style={{ color: "black" }}
+                        >
+                          <h4>{b.title}</h4>
+                        </Link>
+                      </div>
 
-                      <div>{HTMLReactParser(b.description)}</div>
+                      <div className="blog-description">
+                        {HTMLReactParser(b.description)}...{" "}
+                        <Link
+                          to={`/blogpost/detail/${b._id}`}
+                          style={{ color: "#fa9500" }}
+                        >
+                          Read more
+                        </Link>
+                      </div>
                     </div>
                   ))}
               </div>
             </section>
-            <Link to={`/profile/${blog._id}/blogs`}>
-              <p>View all blog posts by {blog.name}</p>
-            </Link>
+            <div className="user-blog-link">
+              <Link
+                to={`/profile/${blog._id}/blogs`}
+                style={{ color: "black" }}
+              >
+                <p>View all blog posts by {blog.name} →</p>
+              </Link>
+            </div>
           </div>
         ) : (
           <p>Loading, please wait.</p>
