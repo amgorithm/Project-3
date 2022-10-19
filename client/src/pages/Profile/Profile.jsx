@@ -134,7 +134,7 @@ function Profile() {
             </div>
           </div>
         ) : (
-          <p>Loading, please wait.</p>
+          <p className="loading-msg">Loading, please wait.</p>
         )}
       </section>
     </div>
