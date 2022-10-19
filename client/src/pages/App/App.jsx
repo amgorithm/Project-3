@@ -15,7 +15,6 @@ import ProtectedPage from "../ProtectedPage";
 import CreateBlogPage from "../createBlogPage/CreateBlogPage";
 import EditBlogPage from "../EditBlogPage/EditBlogPage";
 import ProfileEdit from "../ProfileEdit/ProfileEdit";
-import AboutPage from "../AboutPage/AboutPage";
 
 function App() {
   const { refreshAuth } = useUser();
@@ -41,7 +40,6 @@ function App() {
           path="/blogpost/detail/:id"
           element={<DetailPage />}
         />{" "}
-        <Route exact path="/about" element={<AboutPage />} />
         <Route exact path="/profile/:userID" element={<Profile />} />
         <Route exact path="/profile/:userID/edit" element={<ProfileEdit />} />
         <Route exact path="/profile/:userID/blogs" element={<UserBlogs />} />

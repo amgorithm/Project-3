@@ -92,7 +92,7 @@ export default function HomePage() {
                   </div>
                 </Link>
 
-                <h2>{post.title}</h2>
+                <h2 className="homepage-title">{post.title}</h2>
                 {post.image ? <img src={post.image} alt={post.title} /> : null}
                 <p>{post.description}</p>
                 <div className="post-settings">
@@ -104,14 +104,18 @@ export default function HomePage() {
                   <ul className="tags">
                     {post.tags.map((tag) => (
                       <li key={tag}>
-                        <button value={tag} onClick={onFilterButton}>
+                        <button
+                          className="homepage-button"
+                          value={tag}
+                          onClick={onFilterButton}
+                        >
                           {tag}
                         </button>
                       </li>
                     ))}
                   </ul>
                   <Link to={`/blogpost/detail/${post._id}`}>
-                    <button>Read on</button>
+                    <button className="homepage-button">Read on</button>
                   </Link>
                 </div>
               </article>
