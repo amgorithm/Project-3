@@ -131,16 +131,21 @@ export default function HomePage() {
 
                 <h2 className="homepage-title">{post.title}</h2>
                 {post.image ? <img src={post.image} alt={post.title} /> : null}
-                <p>
-                  {post.description.substring(0, 300)}...{" "}
-                  {<Link to={`/blogpost/detail/${post._id}`}>Read on</Link>}
+                <p className="blog-description">
+                  {post.description.substring(0, 300)}...
+                  <Link
+                    to={`/blogpost/detail/${post._id}`}
+                    style={{ color: "#fa9500" }}
+                  >
+                    Read on
+                  </Link>
                 </p>
                 <div className="post-settings">
-                  <div className="box1">
+                  <div>
                     <p>Posted on: {post.createdAt.substring(0, 10)}</p>
                   </div>
 
-                  <div className="box2">
+                  <div>
                     <ul className="tags">
                       {post.tags.map((tag) => (
                         <li key={tag}>
