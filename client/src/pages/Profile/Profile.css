@@ -81,7 +81,6 @@
   font-size: 18pt;
   margin-top: 20px;
   margin-bottom: 20px;
-  text-align: center;
   color: #4a4a4a;
 }
 
@@ -105,6 +104,9 @@
   color: #fa9500;
 }
 
+.loading-msg {
+  text-align: center;
+}
 @media only screen and (min-width: 768px) {
 }
 
