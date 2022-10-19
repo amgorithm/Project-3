@@ -29,9 +29,18 @@ function UserBlogs() {
     <section>
       {userBlogs ? (
         <>
-          <div key={userBlogs._id} className="blogs-title">
+          <div key={userBlogs._id} className="user-blogs-intro">
+            {userBlogs.image ? (
+              <img src={userBlogs.image} alt="profile avatar" className="pfp" />
+            ) : (
+              <img
+                src={require("../../images/default-user.png")}
+                alt="profile avatar"
+                className="pfp"
+              />
+            )}
             <h3>
-              Blogs by{" "}
+              {" "}
               <Link
                 to={`/profile/${userBlogs._id}`}
                 style={{
@@ -41,8 +50,9 @@ function UserBlogs() {
                 }}
               >
                 {" "}
-                {userBlogs.name}{" "}
-              </Link>
+                {userBlogs.name}'s
+              </Link>{" "}
+              blog posts
             </h3>
           </div>
           <div className="user-blogs-preview">
@@ -75,7 +85,7 @@ function UserBlogs() {
           </div>
         </>
       ) : (
-        <p>Loading, please wait.</p>
+        <p className="loading-msg">Loading, please wait.</p>
       )}
     </section>
   );

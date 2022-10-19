@@ -6,7 +6,11 @@
   height: 600px;
   width: 350px;
   background-color: #faf9f9;
-  margin-top: 50px;
+  /* margin-top: 50px; */
+  margin-top: 30px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
 }
 
 .profile-edit-form {
@@ -37,10 +41,15 @@
   height: 30px;
   font-family: "Roboto", sans-serif;
   font-size: 11pt;
+  box-sizing: border-box;
 }
 
+.profile-edit-form input {
+  margin: 3px 0 3px 0;
+}
 .bio {
   height: 70px;
+  flex-direction: column;
 }
 
 .profile-picture {
