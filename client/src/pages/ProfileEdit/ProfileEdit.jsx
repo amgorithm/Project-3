@@ -33,67 +33,6 @@ function ProfileEdit() {
       });
   }, [userID]);
 
-  // console.log({ profileEdit });
-
-  // const handleTwitterChange = (e) => {
-  //   console.log({ twitter: e.target.value });
-  //   setProfileEdit({
-  //     ...profileEdit,
-  //     socialMediaProfiles: [
-  //       // ...profileEdit.socialMediaProfiles,
-  //       { platform: "twitter", linkToProfile: e.target.value },
-  //     ],
-  //     // socialMediaProfiles: [
-  //     //   {
-  //     //     platform: "twitter",
-  //     //     linkToProfile: e.target.value,
-  //     //   },
-  //     //   {
-  //     //     platform: "instagram",
-  //     //     linkToProfile: profileEdit.socialMediaProfiles[1].linkToProfile,
-  //     //   },
-  //     // ],
-  //   });
-  // };
-
-  // const handleInstagramChange = (e) => {
-  //   console.log({ insta: e.target.value });
-
-  //   setProfileEdit({
-  //     ...profileEdit,
-  //     socialMediaProfiles: [
-  //       // ...profileEdit.socialMediaProfiles,
-  //       { platform: "instagram", linkToProfile: e.target.value },
-  //     ],
-  //   });
-  //   // setProfileEdit({
-  //   //   ...profileEdit,
-  //   //   socialMediaProfiles: [
-  //   //     ...profileEdit.socialMediaProfiles,
-  //   //     {
-  //   //       platform: "instagram",
-  //   //       linkToProfile: e.target.value,
-  //   //     },
-  //   //   ],
-  //   // });
-  // };
-
-  // const handleInstagramChange = (e) => {
-  //   setProfileEdit({
-  //     ...profileEdit,
-  //     socialMediaProfiles: [
-  //       {
-  //         platform: "twitter",
-  //         linkToProfile: profileEdit.socialMediaProfiles[0].linkToProfile,
-  //       },
-  //       {
-  //         platform: "instagram",
-  //         linkToProfile: e.target.value,
-  //       },
-  //     ],
-  //   });
-  // };
-
   async function getBase64(file) {
     return new Promise((resolve, reject) => {
       let baseURL = "";
@@ -108,9 +47,6 @@ function ProfileEdit() {
   }
 
   const handleChange = async (e) => {
-    // If there is an image then we'll want to convert to a Base64
-    // - have conditional to test for image
-    // console.log(e.target); -> to get the name of image in console write: temp1['name']
     if (e.target["name"] === "image") {
       setImageFile(e.target.value);
       const imageURL = await getBase64(e.target.files[0]);

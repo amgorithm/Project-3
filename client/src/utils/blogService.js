@@ -21,9 +21,7 @@ export const getBlog = async (blogID) => {
 
 export const getUserBlog = async (userID) => {
   try {
-    // console.log("service ran");
     let res = await fetch(`/api/users/${userID}`);
-
     return res.json();
   } catch (error) {
     console.log(error);
@@ -54,7 +52,6 @@ export const createABlog = async (blog) => {
     let res = await fetch(`/api/blogs`, {
       method: "POST",
       headers: {
-        //"content-type": 'multipart/form-data',
         Authorization: "Bearer " + token,
       },
       body: blog,

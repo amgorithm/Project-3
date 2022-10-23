@@ -1,7 +1,6 @@
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import formidable from "formidable";
 
 dotenv.config();
 
@@ -14,7 +13,6 @@ export async function signup(req, res) {
     const token = createJWT(user);
     res.json({ token });
   } catch (err) {
-    // Probably a duplicate email
     console.log(err);
     res.status(400).json(err);
   }
@@ -39,29 +37,7 @@ export async function login(req, res) {
   }
 }
 
-// // TODO: Add profile info
-// export async function addProfile(req, res, next) {
-//   console.log("req received on server");
-//   let userId = req.user._id;
-//   try {
-//     let currentUser = await User.findById(userId);
-//     const data = req.body;
-//     const addedProfile = await User.create(data);
-//     // currentUser.bio.push(data);
-
-//     await currentUser.save();
-
-//     // const currentUser = await User.findByIdAndUpdate(req.user._id, req.body, {
-//     //   new: true,
-//     // });
-
-//     res.json(addedProfile);
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
-// TODO: Update profile info
+// * Update user profile *
 export async function updatedProfile(req, res, next) {
   console.log("check req body", req.body);
   try {
@@ -80,23 +56,8 @@ export async function updatedProfile(req, res, next) {
   }
 }
 
-// // TODO: Delete profile info
-// export async function deleteProfile(req, res, next) {
-//   console.log("req body", req.body);
-//   try {
-//     await User.findByIdAndDelete(req.params.id);
-//     res.status(204).send();
-//   } catch (error) {
-//     next(error);
-//   }
-// }
-
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
-  return jwt.sign(
-    { user }, // data payload
-    SECRET,
-    { expiresIn: "24h" }
-  );
+  return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
 }
