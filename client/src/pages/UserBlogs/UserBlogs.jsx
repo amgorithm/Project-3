@@ -7,7 +7,6 @@ import "./UserBlogs.css";
 
 function UserBlogs() {
   const { user } = useUser();
-
   const [userBlogs, setUserBlogs] = useState();
   const { userID } = useParams();
 
@@ -19,7 +18,6 @@ function UserBlogs() {
     async function getUserBlogs() {
       const blog = await getUserBlog(userID);
       setUserBlogs(blog);
-      console.log("user blogs data ->", blog);
     }
     getUserBlogs();
     // eslint-disable-next-line react-hooks/exhaustive-deps

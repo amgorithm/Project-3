@@ -11,7 +11,6 @@ async function getAllBlogs(req, res, next) {
   }
 }
 
-// ! Blog
 async function getABlog(req, res, next) {
   try {
     const blog = await Blog.findById(req.params.id).populate("author");
@@ -30,7 +29,6 @@ async function getABlog(req, res, next) {
   }
 }
 
-// ! User
 async function getUserBlog(req, res, next) {
   try {
     const user = await User.findById(req.params.id).populate("blogs");
