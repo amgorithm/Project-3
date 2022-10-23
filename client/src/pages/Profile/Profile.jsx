@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useUser from "../../hooks/useUser";
 import { getUserBlog } from "../../utils/blogService";
 import HTMLReactParser from "html-react-parser";
@@ -12,12 +12,18 @@ function Profile() {
 
   const { userID } = useParams();
 
+  let navigate = useNavigate();
+
   useEffect(() => {
     async function getBlogData() {
       const blog = await getUserBlog(userID);
+      if (userID !== blog._id) {
+        navigate(`/`);
+      }
       setBlog(blog);
     }
     getBlogData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userID]);
 
   return (
