@@ -26,7 +26,7 @@ function UserBlogs() {
   }, [userID]);
 
   return (
-    <section>
+    <section className="user-blogs-list">
       {userBlogs ? (
         <>
           <div key={userBlogs._id} className="user-blogs-intro">
@@ -55,7 +55,7 @@ function UserBlogs() {
               blog posts
             </h3>
           </div>
-          <div className="user-blogs-preview">
+          <article>
             {userBlogs.blogs
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((b) => (
@@ -82,7 +82,7 @@ function UserBlogs() {
                   </div>
                 </div>
               ))}
-          </div>
+          </article>
         </>
       ) : (
         <p className="loading-msg">Loading, please wait.</p>
