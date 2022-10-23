@@ -1,3 +1,7 @@
+.user-blogs-list {
+  margin-top: 50px;
+}
+
 .user-blogs-card {
   border: 1px solid #dbdbdb;
   border-radius: 4px;
@@ -19,14 +23,14 @@
   font-size: 18pt;
   margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left: 35px;
   color: #4a4a4a;
   display: flex;
   align-items: center;
 }
 
 .user-blogs-intro h3 {
-  padding: 5px;
+  margin-left: 8px;
 }
 
 .user-blogs-title h3 {
@@ -41,4 +45,25 @@
 
 .creation-date p {
   margin-top: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .user-blogs-list {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .user-blogs-list {
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .user-blogs-list {
+    margin-left: 105px;
+    margin-right: 105px;
+  }
 }
