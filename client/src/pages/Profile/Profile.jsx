@@ -16,7 +16,6 @@ function Profile() {
     async function getBlogData() {
       const blog = await getUserBlog(userID);
       setBlog(blog);
-      console.log("profile data ->", blog);
     }
     getBlogData();
   }, [userID]);
