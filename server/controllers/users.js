@@ -37,9 +37,7 @@ export async function login(req, res) {
   }
 }
 
-// * Update user profile *
 export async function updatedProfile(req, res, next) {
-  console.log("check req body", req.body);
   try {
     const updatedProfile = await User.findByIdAndUpdate(
       req.params.id,
@@ -48,8 +46,6 @@ export async function updatedProfile(req, res, next) {
         new: true,
       }
     );
-
-    console.log(updatedProfile);
     res.json(updatedProfile);
   } catch (error) {
     next(error);
