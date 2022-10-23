@@ -48,6 +48,7 @@
   background: none;
   padding: 5px;
   font-family: "Roboto", sans-serif;
+  cursor: pointer;
 }
 
 .blogs-num {
