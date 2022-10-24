@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getUserBlog } from "../../utils/blogService";
 import HTMLReactParser from "html-react-parser";
 import useUser from "../../hooks/useUser";
@@ -10,13 +10,17 @@ function UserBlogs() {
   const [userBlogs, setUserBlogs] = useState();
   const { userID } = useParams();
 
+  let navigate = useNavigate();
+
   useEffect(() => {
     if (!userID) {
       return;
     }
-
     async function getUserBlogs() {
       const blog = await getUserBlog(userID);
+      if (userID !== blog._id) {
+        navigate(`/`);
+      }
       setUserBlogs(blog);
     }
     getUserBlogs();
