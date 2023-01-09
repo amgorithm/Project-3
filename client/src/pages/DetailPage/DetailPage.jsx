@@ -22,9 +22,9 @@ function DetailPage() {
 
   // const [comment, setComment] = React.useState(!!blog);
 
-  const [isAuthor, setIsAuthor] = React.useState(
-    !!TokenService.getUserFromToken()
-  );
+  // const [isAuthor, setIsAuthor] = React.useState(
+  //   !!TokenService.getUserFromToken()
+  // );
 
   // console.log("check author", blog.author._id);
   // const [isUser, setIsUser] = React.useState(!!blog);
@@ -163,30 +163,7 @@ function DetailPage() {
                 {/* <h3>Delete blog</h3> */}
               </div>
             </div>
-          ) : /* 
-            <div className="author-box">
-              <div className="author-only message is-warning">
-                <p className="message-header">Author-only Functions</p>
-                <div className="author-functions">
-                  <div className="delete-function">
-                    <button
-                      className="delete"
-                      aria-label="delete"
-                      onClick={() => {
-                        deleteBlog(blog._id);
-                      }}
-                    ></button>
-                    <p>Delete Blog</p>
-                  </div>
-
-                  <Link to={`/blog/edit/${blog._id}`}>
-                    <button className="edit button is-info">Edit Blog</button>
-                  </Link>
-                </div>
-              </div>
-            </div> */
-
-          null}
+          ) : null}
           {/* 
                     <div className="message-header">
             <h3 className="title">{blog.title}</h3>
@@ -282,8 +259,8 @@ function DetailPage() {
 
           {/* <p>Author: {blog.author.name}</p> */}
           {/* <div className="footnotes">
-                <p>Posted: {blog.createdAt.split("T")[0]} </p>
-                <p>Updated: {blog.updatedAt.split("T")[0]} </p>
+                <p>Posted: {blog.createdAt} </p>
+                <p>Updated: {blog.updatedAt} </p>
               </div> */}
         </article>
       ) : null}
