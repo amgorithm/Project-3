@@ -8,7 +8,7 @@ import "./Profile.css";
 function Profile() {
   const { user } = useUser();
 
-  const [blog, setBlog] = useState();
+  const [blog, setBlog] = useState("");
 
   const { userID } = useParams();
 

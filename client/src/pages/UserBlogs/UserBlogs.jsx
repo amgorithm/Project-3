@@ -7,7 +7,7 @@ import "./UserBlogs.css";
 
 function UserBlogs() {
   const { user } = useUser();
-  const [userBlogs, setUserBlogs] = useState();
+  const [userBlogs, setUserBlogs] = useState("");
   const { userID } = useParams();
 
   let navigate = useNavigate();

@@ -65,7 +65,7 @@ export const createABlog = async (blog) => {
 export const removeABlog = async (blog) => {
   try {
     console.log("blog was deleted");
-    const token = tokenService();
+    const token = tokenService.getToken();
     let res = await fetch(`/api/blogs/${blog._id}`, {
       method: "DELETE",
       headers: {

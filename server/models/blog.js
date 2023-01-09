@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const commentSchema = new mongoose.Schema({
-  comments: [String],
-});
+// const commentSchema = new mongoose.Schema({
+//   comments: [String],
+// });
 
 const tagSchema = new mongoose.Schema({
   tags: [String],
@@ -16,7 +16,7 @@ const blogSchema = new mongoose.Schema(
     // image: { data: Buffer, contentType: String },
     image: String,
     tags: [String],
-    comments: [commentSchema],
+    // comments: [commentSchema],
     //18 and 19 need double checking
     author: { type: mongoose.Schema.ObjectId, ref: "User" },
   },
