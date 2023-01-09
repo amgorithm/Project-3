@@ -8,6 +8,20 @@ const NavBar = () => {
 
   let nav = user ? (
     <div className="navBar-logged-in">
+      <Link
+        to={`/profile/${user._id}`}
+        className="user-name"
+        style={{ color: "#BCBCBC" }}
+      >
+        Welcome, {user.name}
+      </Link>
+
+      <p className="seperate">|</p>
+      <Link to="/blog/new" style={{ color: "#BCBCBC" }}>
+        <h2 className="create-blog">Create</h2>
+      </Link>
+
+      <p className="seperate">|</p>
       <NavLink
         to=""
         className="navBar-logout"
@@ -16,13 +30,6 @@ const NavBar = () => {
       >
         Log out
       </NavLink>
-      <Link
-        to={`/profile/${user._id}`}
-        className="user-name"
-        style={{ color: "#BCBCBC" }}
-      >
-        {user.name}
-      </Link>
     </div>
   ) : (
     <div className="navbar-logged-out">
@@ -45,13 +52,13 @@ const NavBar = () => {
 
   return (
     <div className="navBar">
-      <div className="navBar-left">
-        {user ? (
+      {/* <div className="navBar-left"> */}
+      {/* {user ? (
           <Link to="/blog/new" style={{ color: "#BCBCBC" }}>
             <h2 className="create-blog">Create</h2>
           </Link>
-        ) : null}
-      </div>
+        ) : null} */}
+      {/* </div> */}
 
       <Link to="/" style={{ color: "#fa9500" }}>
         <h1 className="blen">Blen </h1>

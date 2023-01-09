@@ -1,4 +1,4 @@
-.detail-box {
+/* .detail-box {
     height: 100vh;
     margin: 0;
 }
@@ -98,4 +98,140 @@
 
 .text-area {
     height: 10px;
+} */
+
+.detail-section {
+  margin-top: 50px;
+  margin-left: 35px;
+  margin-right: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: auto;
+  max-height: 500px;
+}
+
+.detail-title {
+  align-self: flex-start;
+  padding-bottom: 20px;
+}
+
+.detail-title h2 {
+  font-size: 30px;
+}
+
+.detail-title h3 {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.blog-img-container {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.blog-author {
+  margin-left: 5px;
+}
+
+.blog-content {
+  padding-top: 20px;
+}
+
+.blog-tags-content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.blog-tag {
+  padding: 5px;
+  margin: 5px;
+}
+
+.blog-tags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  @media only screen and (min-width: 768px) {
+    .profile-page {
+      margin-left: 65px;
+      margin-right: 65px;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .profile-page {
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .profile-page {
+      margin-left: 135px;
+      margin-right: 135px;
+    }
+  }
+}
+
+.author-only {
+  display: flex;
+}
+
+.author-only button {
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.edit-blog,
+.delete-blog {
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+.edit-blog button {
+  background-color: #fa9500;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.delete-blog button {
+  background-color: #bd2734;
+  color: white;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+  .detail-section {
+    margin-left: 65px;
+    margin-right: 65px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .detail-section {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .detail-section {
+    margin-left: 135px;
+    margin-right: 135px;
+  }
 }

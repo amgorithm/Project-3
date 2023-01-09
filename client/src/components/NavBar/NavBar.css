@@ -2,21 +2,26 @@
 .navBar {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 5px;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .navBar-logged-in {
   color: #bcbcbc;
+  display: flex;
+  align-items: center;
 }
 
 .user-name {
-  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .navBar-logout {
   margin-right: 5px;
+  margin-left: 5px;
 }
 
 .navBar a {
@@ -37,8 +42,6 @@
 }
 
 .blen {
-  margin-left: 50px;
-  margin-right: 50px;
   font-family: "Space Mono", monospace;
   font-size: 26pt;
 }
@@ -49,7 +52,8 @@
 
 .create-blog {
   margin-left: 5px;
-  color: #BCBCBC;
+  margin-right: 5px;
+  color: #bcbcbc;
   font-weight: normal;
 }
 
@@ -57,6 +61,7 @@
 
 .navBar-login {
   margin-right: 5px;
+
   font-size: 16pt;
 }
 
@@ -69,11 +74,38 @@
 }
 
 .user-name,
-.navBar-logout, 
-.navBar-login, 
-.navBar-signup, 
+.navBar-logout,
+.navBar-login,
+.navBar-signup,
 .create-blog {
   font-size: 16pt;
-  color: #BCBCBC;
+  color: #bcbcbc;
   font-weight: normal;
+}
+
+.seperate {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navBar {
+    padding-left: 65px;
+    padding-right: 65px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .navBar {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .navBar {
+    padding-left: 135px;
+    padding-right: 135px;
+  }
 }
