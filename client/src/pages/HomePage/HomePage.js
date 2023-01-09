@@ -94,7 +94,7 @@ export default function HomePage() {
           <h2>Filter by:</h2>
           {blogs.map((blog) =>
             blog.tags.map((tag) => (
-              <label class="container">
+              <label className="container">
                 {tag}
                 <input
                   type="checkbox"
