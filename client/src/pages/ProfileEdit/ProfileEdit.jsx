@@ -75,7 +75,7 @@ function ProfileEdit() {
       <div className="form-container">
         <form onSubmit={handleSubmit} className="profile-edit-form">
           <label>Bio:</label>
-          <input
+          <textarea
             className="edit-input bio"
             type="text"
             name="bio"

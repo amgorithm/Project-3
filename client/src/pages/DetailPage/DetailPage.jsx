@@ -11,8 +11,7 @@ import { removeABlog } from "../../utils/blogService";
 import useUser from "../../hooks/useUser";
 
 function DetailPage() {
-
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const id = useParams().id;
 
@@ -20,11 +19,11 @@ function DetailPage() {
 
   function deleteSingleBlog(e) {
     e.preventDefault();
-    removeABlog(blog._id)
+    removeABlog(blog._id);
     navigate("/");
     // updateABlog(blog).then((res) => {
-      // });
-    }
+    // });
+  }
 
   const [blog, setBlog] = React.useState("");
   // const [blog, setBlog] = React.useState(!!getBlog(id));
@@ -39,7 +38,7 @@ function DetailPage() {
 
   // console.log("check author", blog.author._id);
   // const [isUser, setIsUser] = React.useState(!!blog);
-
+  console.log(blog);
   let fetchBlog = () => {
     // setBlog(blog = "Apple");
     // console.log("Reached fetchBlog function!");
@@ -144,6 +143,11 @@ function DetailPage() {
 
           <div className="blog-content">
             <div>{HTMLReactParser(blog.content)}</div>
+            {blog.createdAt < blog.updatedAt ? (
+              <h3 className="updated-date">
+                Updated on {blog.updatedAt.split("T")[0]}
+              </h3>
+            ) : null}
           </div>
 
           <div className="blog-tags-content">
@@ -169,7 +173,9 @@ function DetailPage() {
               </div>
 
               <div className="delete-blog">
-                <button onClick={(e) =>  deleteSingleBlog(e)}>Delete blog</button>
+                <button onClick={(e) => deleteSingleBlog(e)}>
+                  Delete blog
+                </button>
 
                 {/* <h3>Delete blog</h3> */}
               </div>
