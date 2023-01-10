@@ -1,5 +1,6 @@
 import Blog from "../models/blog.js";
 import User from "../models/user.js";
+import fs from "file-system";
 import { CastError } from "mongoose";
 
 async function getAllBlogs(req, res, next) {
@@ -82,8 +83,22 @@ async function updatedBlog(req, res, next) {
 
 async function deleteBlog(req, res, next) {
   try {
-    await Blog.findByIdAndDelete(req.params.id);
-    res.status(204).send();
+    const blog = await Blog.findById(req.params.id);
+    if (!blog) {
+      return res.status(400).json({ error: true, message: "Blog not found." });
+    } else {
+      if (blog.image !== "") {
+        fs.unlink(blog.image, (err) => {
+          if (err) throw err;
+          console.log("successfully deleted image");
+        });
+        await Blog.findByIdAndDelete(req.params.id);
+        res.status(204).send();
+      } else {
+        await Blog.findByIdAndDelete(req.params.id);
+        res.status(204).send();
+      }
+    }
   } catch (error) {
     next(error);
   }
