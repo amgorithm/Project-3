@@ -62,17 +62,15 @@ export const createABlog = async (blog) => {
   }
 };
 
-export const removeABlog = async (blog) => {
+export const removeABlog = async (blogID) => {
   try {
-    console.log("blog was deleted");
     const token = tokenService.getToken();
-    let res = await fetch(`/api/blogs/${blog._id}`, {
+    let res = await fetch(`/api/blogs/${blogID}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
         Authorization: "Bearer " + token,
       },
-      body: JSON.stringify(blog),
     });
     return res;
   } catch (error) {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./DetailPage.css";
 // import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import TokenService from "../../utils/tokenService";
@@ -11,9 +11,20 @@ import { removeABlog } from "../../utils/blogService";
 import useUser from "../../hooks/useUser";
 
 function DetailPage() {
+
+  let navigate = useNavigate()
+
   const id = useParams().id;
 
   const { user } = useUser();
+
+  function deleteSingleBlog(e) {
+    e.preventDefault();
+    removeABlog(blog._id)
+    navigate("/");
+    // updateABlog(blog).then((res) => {
+      // });
+    }
 
   const [blog, setBlog] = React.useState("");
   // const [blog, setBlog] = React.useState(!!getBlog(id));
@@ -158,7 +169,7 @@ function DetailPage() {
               </div>
 
               <div className="delete-blog">
-                <button>Delete blog</button>
+                <button onClick={(e) =>  deleteSingleBlog(e)}>Delete blog</button>
 
                 {/* <h3>Delete blog</h3> */}
               </div>
