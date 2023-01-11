@@ -38,7 +38,7 @@ function DetailPage() {
 
   // console.log("check author", blog.author._id);
   // const [isUser, setIsUser] = React.useState(!!blog);
-  console.log(blog);
+
   let fetchBlog = () => {
     // setBlog(blog = "Apple");
     // console.log("Reached fetchBlog function!");
