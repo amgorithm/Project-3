@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import { BASE_URL } from "../../utils/constants";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
   let [tags, setTags] = useState([]); //reflects actively filtered tags
@@ -14,7 +15,7 @@ export default function HomePage() {
 
   async function getBlogs() {
     try {
-      const response = await fetch("/api/blogs");
+      const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       setBlogs(blogs);
     } catch (err) {
@@ -23,7 +24,7 @@ export default function HomePage() {
   }
   async function getTags() {
     try {
-      const response = await fetch("/api/blogs");
+      const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       blogs.forEach((blog) => {
         blog.tags.forEach((tag) => {

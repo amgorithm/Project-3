@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from "react-router-dom"
 
 import userService from "../../utils/userService"
+import { BASE_URL } from '../../utils/constants'
 import { updateABlog } from '../../utils/blogService'
 import TextEditor from '../../components/TextEditor/TextEditor'
 
@@ -21,7 +22,7 @@ function EditPage() {
   useEffect(() => {
     let fetchForm = async () => {
       try {
-        let response = await fetch(`/api/blogs/${blogId}`);
+        let response = await fetch(`${BASE_URL}/api/blogs/${blogId}`);
         if (response.status === 200) {
           let data = await response.json();
           setBlog(data);

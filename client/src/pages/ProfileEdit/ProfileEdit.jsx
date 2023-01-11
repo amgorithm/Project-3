@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import useUser from "../../hooks/useUser";
 import { useNavigate, useParams } from "react-router-dom";
 import { updateProfileInfo } from "../../utils/userService";
+import { BASE_URL } from "../../utils/constants";
 import "./ProfileEdit.css";
 
 const initialProfileDataObject = {
@@ -25,7 +26,7 @@ function ProfileEdit() {
     if (!userID) {
       return;
     }
-    fetch(`/api/users/${userID}`)
+    fetch(`${BASE_URL}/api/users/${userID}`)
       .then((res) => res.json())
       .then((userData) => {
         const newUserObject = { ...initialProfileDataObject, ...userData };
