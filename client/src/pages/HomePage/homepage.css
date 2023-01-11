@@ -19,7 +19,39 @@ body {
   background: none;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
+#background-img {
+  height: calc(100vh - 200px);
+  width: 100%;
+  margin: 30px 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../../images/andrew-neel-cckf4TsHAuw-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.blen {
+  font-family: "Space Mono", monospace;
+  font-size: 26pt;
+  color: #fa9500;
+}
+
+.container {
+  margin-right: 9px;
+}
+
+.container2 {
+  margin-left: 2px;
+}
 
 .tag-buttons {
   border: none;
@@ -74,6 +106,7 @@ body {
   border: solid 2px #dbdbdb;
   padding: 10px;
   border-radius: 5px;
+  width: 90vw;
 }
 
 .blogs-feed {
