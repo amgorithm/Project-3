@@ -13,6 +13,8 @@
   color: #bcbcbc;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .user-name {
@@ -44,6 +46,7 @@
 .blen {
   font-family: "Space Mono", monospace;
   font-size: 26pt;
+  padding-right: 10px;
 }
 
 .navBar-left {
