@@ -124,69 +124,75 @@ export default function HomePage() {
         </div>
 
         <main className="blogs-feed">
-          {blogs.map((post) =>
-            tags.some((el) => post.tags.includes(el)) ? (
-              //article post
+          {blogs ? (
+            blogs.map((post) =>
+              tags.some((el) => post.tags.includes(el)) ? (
+                //article post
 
-              <article className="article-post" key={post._id}>
-                <div>
-                  <Link to={`/profile/${post.author._id}`}>
-                    <div className="user-details">
-                      <img
-                        src={
-                          post.author.image
-                            ? post.author.image
-                            : require("../../images/default-user.png")
-                        }
-                        alt="profile pic"
-                      />
-                      <p>{post.author.name}</p>
+                <article className="article-post" key={post._id}>
+                  <div>
+                    <Link to={`/profile/${post.author._id}`}>
+                      <div className="user-details">
+                        <img
+                          src={
+                            post.author.image
+                              ? post.author.image
+                              : require("../../images/default-user.png")
+                          }
+                          alt="profile pic"
+                        />
+                        <p>{post.author.name}</p>
+                      </div>
+                    </Link>
+                  </div>
+
+                  <h2 className="homepage-title">
+                    <Link
+                      to={`/blogpost/detail/${post._id}`}
+                      style={{ color: "#fa9500" }}
+                    >
+                      {post.title}
+                    </Link>
+                  </h2>
+                  {post.image ? (
+                    <img src={post.image} alt={post.title} />
+                  ) : null}
+                  <p className="blog-description">
+                    {post.description.substring(0, 300)}...
+                    <Link
+                      to={`/blogpost/detail/${post._id}`}
+                      style={{ color: "#fa9500" }}
+                    >
+                      Read on
+                    </Link>
+                  </p>
+                  <div className="post-settings">
+                    <div>
+                      <p>Posted on: {post.createdAt.substring(0, 10)}</p>
                     </div>
-                  </Link>
-                </div>
 
-                <h2 className="homepage-title">
-                  <Link
-                    to={`/blogpost/detail/${post._id}`}
-                    style={{ color: "#fa9500" }}
-                  >
-                    {post.title}
-                  </Link>
-                </h2>
-                {post.image ? <img src={post.image} alt={post.title} /> : null}
-                <p className="blog-description">
-                  {post.description.substring(0, 300)}...
-                  <Link
-                    to={`/blogpost/detail/${post._id}`}
-                    style={{ color: "#fa9500" }}
-                  >
-                    Read on
-                  </Link>
-                </p>
-                <div className="post-settings">
-                  <div>
-                    <p>Posted on: {post.createdAt.substring(0, 10)}</p>
+                    <div>
+                      <ul className="tags">
+                        {post.tags.map((tag) => (
+                          <li key={tag}>
+                            <button
+                              // className="homepage-button"
+                              className="tag-buttons"
+                              value={tag}
+                              onClick={onFilterButton}
+                            >
+                              #{tag}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
-                  <div>
-                    <ul className="tags">
-                      {post.tags.map((tag) => (
-                        <li key={tag}>
-                          <button
-                            // className="homepage-button"
-                            className="tag-buttons"
-                            value={tag}
-                            onClick={onFilterButton}
-                          >
-                            #{tag}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            ) : null
+                </article>
+              ) : null
+            )
+          ) : (
+            <p>Loading...</p>
           )}
         </main>
       </div>
