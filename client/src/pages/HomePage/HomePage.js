@@ -4,10 +4,12 @@ import "./homepage.css";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
   let [tags, setTags] = useState([]); //reflects actively filtered tags
+  // eslint-disable-next-line
   let [tags2, setTags2] = useState([]); //array of all the tags of all the blogs
   useEffect(() => {
     getBlogs();
     getTags();
+    // eslint-disable-next-line
   }, []);
 
   async function getBlogs() {
@@ -92,7 +94,7 @@ export default function HomePage() {
             value="latest"
             onChange={onDateSortChange}
           />
-          <label className="container" for="latest">
+          <label className="container" htmlFor="latest">
             Latest
           </label>
 
@@ -103,39 +105,21 @@ export default function HomePage() {
             value="title"
             onChange={onAlphabetSortChange}
           />
-          <label for="title">Title</label>
+          <label htmlFor="title">Title</label>
           <hr />
           <h2>Filter by:</h2>
-          {
-            // old filter tags
-            // blogs.map((blog) =>
-            //   blog.tags.map((tag) => (
-            //     <label className="container">
-            //       {tag}
-            //       <input
-            //         className="container2"
-            //         type="checkbox"
-            //         name={tag}
-            //         onChange={onFilterChange}
-            //         checked={tags.includes(tag)}
-            //       />
-            //     </label>
-            //   ))
-            // )
-
-            tags2.slice(0, 15).map((tag) => (
-              <label className="container">
-                {tag}
-                <input
-                  className="container2"
-                  type="checkbox"
-                  name={tag}
-                  onChange={onFilterChange}
-                  checked={tags.includes(tag)}
-                />
-              </label>
-            ))
-          }
+          {tags2.slice(0, 15).map((tag, i) => (
+            <label className="container" key={i}>
+              {tag}
+              <input
+                className="container2"
+                type="checkbox"
+                name={tag}
+                onChange={onFilterChange}
+                checked={tags.includes(tag)}
+              />
+            </label>
+          ))}
         </div>
 
         <main className="blogs-feed">
