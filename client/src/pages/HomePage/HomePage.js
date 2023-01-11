@@ -67,7 +67,6 @@ export default function HomePage() {
   };
 
   const onDateSortChange = (e) => {
-    console.log(e.target);
     const newBlogs = structuredClone(blogs);
     setBlogs(
       newBlogs.sort(function (a, b) {

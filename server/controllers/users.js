@@ -25,7 +25,7 @@ export async function login(req, res) {
     user.comparePassword(req.body.password, (err, isMatch) => {
       if (isMatch) {
         user.image = "";
-        console.log(user);
+
         const token = createJWT(user);
         res.json({ token });
       } else {
