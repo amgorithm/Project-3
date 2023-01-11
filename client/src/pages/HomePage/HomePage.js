@@ -81,8 +81,8 @@ export default function HomePage() {
 
   return (
     <div>
+      <section id="background-img" className="flex-center"></section>
       <div className="main-flex">
-        <section id="background-img" className="flex-center"></section>
         <div className="blogs-side">
           <h2>Sort by:</h2>
           <input
