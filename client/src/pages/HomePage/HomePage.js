@@ -62,7 +62,6 @@ export default function HomePage() {
   };
 
   const onFilterButton = (e) => {
-    console.log(e.target.value);
     const thisTag = e.target.value;
     setTags(tags.filter((tag) => tag === thisTag));
   };
