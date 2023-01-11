@@ -48,7 +48,6 @@ function CreateBlogPage() {
     })
     
     createABlog(formData).then(res => {
-      console.log(res)
       navigate("/")
     })
   }
