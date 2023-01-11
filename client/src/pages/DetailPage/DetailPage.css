@@ -140,6 +140,7 @@ img {
 
 .blog-content {
   padding-top: 20px;
+  word-break: break-all;
 }
 
 .updated-date {
