@@ -76,10 +76,11 @@ function ProfileEdit() {
         <form onSubmit={handleSubmit} className="profile-edit-form">
           <label>Bio:</label>
           <textarea
-            className="edit-input bio"
+            className="bio"
             type="text"
             name="bio"
             value={profileEdit.bio}
+            maxLength="80"
             onChange={handleChange}
           />
 

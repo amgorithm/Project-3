@@ -41,9 +41,13 @@
 .profile-edit-form input {
   margin: 3px 0 3px 0;
 }
+
 .bio {
   height: 70px;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  font-size: 11pt;
+  box-sizing: border-box;
 }
 
 .profile-picture {
