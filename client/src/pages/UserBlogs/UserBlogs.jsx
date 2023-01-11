@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getUserBlog } from "../../utils/blogService";
 import HTMLReactParser from "html-react-parser";
-import useUser from "../../hooks/useUser";
+// import useUser from "../../hooks/useUser";
 import "./UserBlogs.css";
 
 function UserBlogs() {
-  const { user } = useUser();
+  // const { user } = useUser();
   const [userBlogs, setUserBlogs] = useState("");
   const { userID } = useParams();
 
