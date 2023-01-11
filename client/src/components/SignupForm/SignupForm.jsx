@@ -44,34 +44,33 @@ function SignupForm({ updateMessage }) {
   }
 
   return (
-    <div className='SignupPage message is-primary'>
-      <header className="header-footer message-header"><h1>Sign Up</h1></header>
-      <div className="form-box">
-      <form className="form-horizontal" onSubmit={handleSubmit} >
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="text" className="form-control" placeholder="Name" value={state.name} name="name" onChange={handleChange} />
+    <div className='back'>
+      <div className='main'>
+      <form className='form' onSubmit={handleSubmit} >
+        <div >
+          <div >
+            <input type="text"  placeholder="Name" value={state.name} name="name" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="email" className="form-control" placeholder="Email" value={state.email} name="email" onChange={handleChange} />
+        <div >
+          <div >
+            <input type="email"  placeholder="Email" value={state.email} name="email" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="password" className="form-control" placeholder="Password" value={state.password} name="password" onChange={handleChange} />
+        <div >
+          <div >
+            <input type="password"  placeholder="Password" value={state.password} name="password" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="password" className="form-control" placeholder="Confirm Password" value={state.passwordConf} name="passwordConf" onChange={handleChange} />
+        <div >
+          <div >
+            <input type="password"  placeholder="Confirm Password" value={state.passwordConf} name="passwordConf" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group buttons">
+        <div >
           {/* <div className="col-sm-12 text-center"> */}
-            <button className="button is-primary" style={{textDecoration: "none"}} disabled={isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-           <button className="button is-primary"> <Link to='/' style={{textDecoration: "none"}}>Cancel</Link></button>
+            <button  style={{textDecoration: "none"}} disabled={isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+           <button > <Link to='/' style={{textDecoration: "none"}}>Cancel</Link></button>
           {/* </div> */}
         </div>
       </form>

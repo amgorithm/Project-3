@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import "./homepage.css";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
-  let [tags, setTags] = useState([]);
+  let [tags, setTags] = useState([]); //reflects actively filtered tags
+  let [tags2, setTags2] = useState([]); //array of all the tags of all the blogs
   useEffect(() => {
     getBlogs();
     getTags();
@@ -25,12 +26,22 @@ export default function HomePage() {
       blogs.forEach((blog) => {
         blog.tags.forEach((tag) => {
           tags.push(tag);
+          tags2.push(tag);
         });
       });
+      shuffleArray(tags2);
     } catch (err) {
       console.log(err);
     }
   }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   const onFilterChange = (e) => {
     const thisTag = e.target["name"];
     if (e.target.checked) {
@@ -71,6 +82,7 @@ export default function HomePage() {
   return (
     <div>
       <div className="main-flex">
+        <section id="background-img" className="flex-center"></section>
         <div className="blogs-side">
           <h2>Sort by:</h2>
           <input
@@ -80,7 +92,9 @@ export default function HomePage() {
             value="latest"
             onChange={onDateSortChange}
           />
-          <label for="latest">Latest</label>
+          <label className="container" for="latest">
+            Latest
+          </label>
 
           <input
             type="radio"
@@ -92,11 +106,28 @@ export default function HomePage() {
           <label for="title">Title</label>
           <hr />
           <h2>Filter by:</h2>
-          {blogs.map((blog) =>
-            blog.tags.map((tag) => (
+          {
+            // old filter tags
+            // blogs.map((blog) =>
+            //   blog.tags.map((tag) => (
+            //     <label className="container">
+            //       {tag}
+            //       <input
+            //         className="container2"
+            //         type="checkbox"
+            //         name={tag}
+            //         onChange={onFilterChange}
+            //         checked={tags.includes(tag)}
+            //       />
+            //     </label>
+            //   ))
+            // )
+
+            tags2.slice(0, 15).map((tag) => (
               <label className="container">
                 {tag}
                 <input
+                  className="container2"
                   type="checkbox"
                   name={tag}
                   onChange={onFilterChange}
@@ -104,7 +135,7 @@ export default function HomePage() {
                 />
               </label>
             ))
-          )}
+          }
         </div>
 
         <main className="blogs-feed">
@@ -129,7 +160,14 @@ export default function HomePage() {
                   </Link>
                 </div>
 
-                <h2 className="homepage-title">{post.title}</h2>
+                <h2 className="homepage-title">
+                  <Link
+                    to={`/blogpost/detail/${post._id}`}
+                    style={{ color: "#fa9500" }}
+                  >
+                    {post.title}
+                  </Link>
+                </h2>
                 {post.image ? <img src={post.image} alt={post.title} /> : null}
                 <p className="blog-description">
                   {post.description.substring(0, 300)}...

@@ -36,24 +36,23 @@ function LoginPage() {
   }
 
   return (
-    <div className="LoginPage message is-primary">
-      <header className="header-footer message-header"><h1>Log In</h1></header>
-      <div className="form-box">
-      <form className="form-horizontal" onSubmit={handleSubmit} >
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="email" className="form-control" placeholder="Email" value={formState.email} name="email" onChange={handleChange} />
+    <div className='back'>
+      <div className='main'>
+      <form className='form' onSubmit={handleSubmit} >
+        <div >
+          <div >
+            <input type="email"  placeholder="Email" value={formState.email} name="email" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group">
-          <div className="col-sm-12">
-            <input type="password" className="form-control" placeholder="Password" value={formState.password} name="password" onChange={handleChange} />
+        <div >
+          <div >
+            <input type="password"  placeholder="Password" value={formState.password} name="password" onChange={handleChange} />
           </div>
         </div>
-        <div className="form-group buttons">
+        <div >
           {/* <div className="col-sm-12 text-center buttons group"> */}
-            <button className="button is-primary">Log In</button>&nbsp;&nbsp;&nbsp;
-            <button className="button is-primary"><Link to='/' style={{textDecoration: "none"}}><p>Cancel</p></Link></button>
+            <button >Log In</button>&nbsp;&nbsp;&nbsp;
+            <button ><Link to='/' style={{textDecoration: "none"}}><p>Cancel</p></Link></button>
           {/* </div> */}
         </div>
       </form>
