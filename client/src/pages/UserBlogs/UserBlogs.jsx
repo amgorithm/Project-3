@@ -57,7 +57,7 @@ function UserBlogs() {
               blog posts
             </h3>
           </div>
-          <article>
+          <article className="user-blogs-article">
             {userBlogs.blogs
               .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
               .map((b) => (
