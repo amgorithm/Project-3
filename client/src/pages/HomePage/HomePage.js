@@ -4,9 +4,10 @@ import "./homepage.css";
 import { BASE_URL } from "../../utils/constants";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
-  let [tags, setTags] = useState([]); //reflects actively filtered tags
+  let [tags, setTags] = useState([]); //reflects tags only checked off
   // eslint-disable-next-line
   let [tags2, setTags2] = useState([]); //array of all the tags of all the blogs
+  let [filtered, setFiltered] = useState(false);
   useEffect(() => {
     getBlogs();
     getTags();
@@ -61,9 +62,15 @@ export default function HomePage() {
     }
   };
 
+  //for the individual checkboxes
   const onFilterButton = (e) => {
     const thisTag = e.target.value;
     setTags(tags.filter((tag) => tag === thisTag));
+  };
+
+  //for filter option in general
+  const onFilterOption = () => {
+    setFiltered(!filtered);
   };
 
   const onDateSortChange = (e) => {
@@ -119,14 +126,81 @@ export default function HomePage() {
               />
             </label>
           ))}
+
+          <button value={filtered} onClick={onFilterOption}>
+            Filter blogs: {filtered ? "On" : "Off"}
+          </button>
         </div>
 
         <main className="blogs-feed">
-          {blogs ? (
-            blogs.map((post) =>
-              tags.some((el) => post.tags.includes(el)) ? (
-                //article post
+          {filtered
+            ? blogs.map((post) =>
+                tags.some((el) => post.tags.includes(el)) ? (
+                  // this function makes sure only the blogs with the selected filters are showing
+                  <article className="article-post" key={post._id}>
+                    <div>
+                      <Link to={`/profile/${post.author._id}`}>
+                        <div className="user-details">
+                          <img
+                            src={
+                              post.author.image
+                                ? post.author.image
+                                : require("../../images/default-user.png")
+                            }
+                            alt="profile pic"
+                          />
+                          <p>{post.author.name}</p>
+                        </div>
+                      </Link>
+                    </div>
 
+                    <h2 className="homepage-title">
+                      <Link
+                        to={`/blogpost/detail/${post._id}`}
+                        style={{ color: "#fa9500" }}
+                      >
+                        {post.title}
+                      </Link>
+                    </h2>
+                    {post.image ? (
+                      <img src={post.image} alt={post.title} />
+                    ) : null}
+                    <p className="blog-description">
+                      {post.description.substring(0, 300)}...
+                      <Link
+                        to={`/blogpost/detail/${post._id}`}
+                        style={{ color: "#fa9500" }}
+                      >
+                        Read on
+                      </Link>
+                    </p>
+                    <div className="post-settings">
+                      <div>
+                        <p>Posted on: {post.createdAt.substring(0, 10)}</p>
+                      </div>
+
+                      <div>
+                        <ul className="tags">
+                          {post.tags.map((tag) => (
+                            <li key={tag}>
+                              <button
+                                // className="homepage-button"
+                                className="tag-buttons"
+                                value={tag}
+                                onClick={onFilterButton}
+                              >
+                                #{tag}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                ) : null
+              )
+            : blogs.map((post) => (
+                // this function makes sure only the blogs with the selected filters are showing
                 <article className="article-post" key={post._id}>
                   <div>
                     <Link to={`/profile/${post.author._id}`}>
@@ -187,11 +261,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </article>
-              ) : null
-            )
-          ) : (
-            <p>Loading...</p>
-          )}
+              ))}
         </main>
       </div>
     </div>
