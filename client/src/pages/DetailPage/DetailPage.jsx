@@ -2,9 +2,9 @@ import React from "react";
 import "./DetailPage.css";
 // import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import TokenService from "../../utils/tokenService";
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+// import TokenService from "../../utils/tokenService";
 import { getBlog } from "../../utils/blogService";
 import HTMLReactParser from "html-react-parser";
 import { removeABlog } from "../../utils/blogService";
@@ -28,7 +28,7 @@ function DetailPage() {
   const [blog, setBlog] = React.useState("");
   // const [blog, setBlog] = React.useState(!!getBlog(id));
 
-  var MySwal = withReactContent(Swal);
+  // var MySwal = withReactContent(Swal);
 
   // const [comment, setComment] = React.useState(!!blog);
 

@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.css";
+import { BASE_URL } from "../../utils/constants";
 export default function HomePage() {
   let [blogs, setBlogs] = useState([]);
   let [tags, setTags] = useState([]); //reflects actively filtered tags
+  // eslint-disable-next-line
   let [tags2, setTags2] = useState([]); //array of all the tags of all the blogs
   useEffect(() => {
     getBlogs();
     getTags();
+    // eslint-disable-next-line
   }, []);
 
   async function getBlogs() {
     try {
-      const response = await fetch("/api/blogs");
+      const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       setBlogs(blogs);
     } catch (err) {
@@ -21,7 +24,7 @@ export default function HomePage() {
   }
   async function getTags() {
     try {
-      const response = await fetch("/api/blogs");
+      const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       blogs.forEach((blog) => {
         blog.tags.forEach((tag) => {
@@ -59,13 +62,11 @@ export default function HomePage() {
   };
 
   const onFilterButton = (e) => {
-    console.log(e.target.value);
     const thisTag = e.target.value;
     setTags(tags.filter((tag) => tag === thisTag));
   };
 
   const onDateSortChange = (e) => {
-    console.log(e.target);
     const newBlogs = structuredClone(blogs);
     setBlogs(
       newBlogs.sort(function (a, b) {
@@ -92,7 +93,7 @@ export default function HomePage() {
             value="latest"
             onChange={onDateSortChange}
           />
-          <label className="container" for="latest">
+          <label className="container" htmlFor="latest">
             Latest
           </label>
 
@@ -103,105 +104,93 @@ export default function HomePage() {
             value="title"
             onChange={onAlphabetSortChange}
           />
-          <label for="title">Title</label>
+          <label htmlFor="title">Title</label>
           <hr />
           <h2>Filter by:</h2>
-          {
-            // old filter tags
-            // blogs.map((blog) =>
-            //   blog.tags.map((tag) => (
-            //     <label className="container">
-            //       {tag}
-            //       <input
-            //         className="container2"
-            //         type="checkbox"
-            //         name={tag}
-            //         onChange={onFilterChange}
-            //         checked={tags.includes(tag)}
-            //       />
-            //     </label>
-            //   ))
-            // )
-
-            tags2.slice(0, 15).map((tag) => (
-              <label className="container">
-                {tag}
-                <input
-                  className="container2"
-                  type="checkbox"
-                  name={tag}
-                  onChange={onFilterChange}
-                  checked={tags.includes(tag)}
-                />
-              </label>
-            ))
-          }
+          {tags2.slice(0, 15).map((tag, i) => (
+            <label className="container" key={i}>
+              {tag}
+              <input
+                className="container2"
+                type="checkbox"
+                name={tag}
+                onChange={onFilterChange}
+                checked={tags.includes(tag)}
+              />
+            </label>
+          ))}
         </div>
 
         <main className="blogs-feed">
-          {blogs.map((post) =>
-            tags.some((el) => post.tags.includes(el)) ? (
-              //article post
+          {blogs ? (
+            blogs.map((post) =>
+              tags.some((el) => post.tags.includes(el)) ? (
+                //article post
 
-              <article className="article-post" key={post._id}>
-                <div>
-                  <Link to={`/profile/${post.author._id}`}>
-                    <div className="user-details">
-                      <img
-                        src={
-                          post.author.image
-                            ? post.author.image
-                            : require("../../images/default-user.png")
-                        }
-                        alt="profile pic"
-                      />
-                      <p>{post.author.name}</p>
+                <article className="article-post" key={post._id}>
+                  <div>
+                    <Link to={`/profile/${post.author._id}`}>
+                      <div className="user-details">
+                        <img
+                          src={
+                            post.author.image
+                              ? post.author.image
+                              : require("../../images/default-user.png")
+                          }
+                          alt="profile pic"
+                        />
+                        <p>{post.author.name}</p>
+                      </div>
+                    </Link>
+                  </div>
+
+                  <h2 className="homepage-title">
+                    <Link
+                      to={`/blogpost/detail/${post._id}`}
+                      style={{ color: "#fa9500" }}
+                    >
+                      {post.title}
+                    </Link>
+                  </h2>
+                  {post.image ? (
+                    <img src={post.image} alt={post.title} />
+                  ) : null}
+                  <p className="blog-description">
+                    {post.description.substring(0, 300)}...
+                    <Link
+                      to={`/blogpost/detail/${post._id}`}
+                      style={{ color: "#fa9500" }}
+                    >
+                      Read on
+                    </Link>
+                  </p>
+                  <div className="post-settings">
+                    <div>
+                      <p>Posted on: {post.createdAt.substring(0, 10)}</p>
                     </div>
-                  </Link>
-                </div>
 
-                <h2 className="homepage-title">
-                  <Link
-                    to={`/blogpost/detail/${post._id}`}
-                    style={{ color: "#fa9500" }}
-                  >
-                    {post.title}
-                  </Link>
-                </h2>
-                {post.image ? <img src={post.image} alt={post.title} /> : null}
-                <p className="blog-description">
-                  {post.description.substring(0, 300)}...
-                  <Link
-                    to={`/blogpost/detail/${post._id}`}
-                    style={{ color: "#fa9500" }}
-                  >
-                    Read on
-                  </Link>
-                </p>
-                <div className="post-settings">
-                  <div>
-                    <p>Posted on: {post.createdAt.substring(0, 10)}</p>
+                    <div>
+                      <ul className="tags">
+                        {post.tags.map((tag) => (
+                          <li key={tag}>
+                            <button
+                              // className="homepage-button"
+                              className="tag-buttons"
+                              value={tag}
+                              onClick={onFilterButton}
+                            >
+                              #{tag}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-
-                  <div>
-                    <ul className="tags">
-                      {post.tags.map((tag) => (
-                        <li key={tag}>
-                          <button
-                            // className="homepage-button"
-                            className="tag-buttons"
-                            value={tag}
-                            onClick={onFilterButton}
-                          >
-                            #{tag}
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </article>
-            ) : null
+                </article>
+              ) : null
+            )
+          ) : (
+            <p>Loading...</p>
           )}
         </main>
       </div>
