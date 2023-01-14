@@ -19,7 +19,7 @@ export default function HomePage() {
       const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       setBlogs(blogs);
-      console.log(blogs);
+      // console.log(blogs)
     } catch (err) {
       console.log(err);
     }
