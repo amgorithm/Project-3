@@ -37,7 +37,7 @@ app.use(
     origin: [
       "https://blen-app.netlify.app",
       "http://localhost:3000",
-      "https://project-3-production.up.railway.app",
+      "https://blen-backend.up.railway.app/",
     ],
   })
 );

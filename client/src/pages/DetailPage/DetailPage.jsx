@@ -138,7 +138,7 @@ function DetailPage() {
           {blog.image ? (
             <div className="blog-img-container">
               <img
-                src={`https://project-3-production.up.railway.app/uploads/${blog.image}`}
+                src={`https://blen-backend.up.railway.app/uploads/${blog.image}`}
                 alt={blog.title}
               />
             </div>

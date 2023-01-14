@@ -166,7 +166,7 @@ export default function HomePage() {
                     {post.image ? (
                       <img
                         // src={require(`${BASE_URL}/uploads/${post.image}`)}
-                        src={`https://project-3-production.up.railway.app/uploads/${post.image}`}
+                        src={`https://blen-backend.up.railway.app/uploads/${post.image}`}
                         alt={post.title}
                       />
                     ) : null}
@@ -233,7 +233,7 @@ export default function HomePage() {
                   </h2>
                   {post.image ? (
                     <img
-                      src={`https://project-3-production.up.railway.app/uploads/${post.image}`}
+                      src={`https://blen-backend.up.railway.app/uploads/${post.image}`}
                       alt={post.title}
                     />
                   ) : null}
