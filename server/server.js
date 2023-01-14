@@ -34,7 +34,7 @@ app.use(express.json({ limit: "30mb" }));
 // app.use(express.urlencoded());
 app.use(
   cors({
-    origin: ["https://blen.netlify.app", "http://localhost:3000"],
+    origin: ["blen-app.netlify.app", "http://localhost:3000"],
   })
 );
 app.use(auth);
