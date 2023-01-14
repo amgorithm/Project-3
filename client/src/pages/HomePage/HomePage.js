@@ -166,9 +166,7 @@ export default function HomePage() {
                     {post.image ? (
                       <img
                         // src={require(`${BASE_URL}/uploads/${post.image}`)}
-                        src={
-                          "https://blen-backend.onrender.com/uploads/blog-stock.jpeg"
-                        }
+                        src={`https://blen-backend.onrender.com/uploads/${post.image}`}
                         alt={post.title}
                       />
                     ) : null}
@@ -234,7 +232,10 @@ export default function HomePage() {
                     </Link>
                   </h2>
                   {post.image ? (
-                    <img src={post.image} alt={post.title} />
+                    <img
+                      src={`https://blen-backend.onrender.com/uploads/${post.image}`}
+                      alt={post.title}
+                    />
                   ) : null}
                   <p className="blog-description">
                     {post.description.substring(0, 300)}...
