@@ -34,7 +34,11 @@ app.use(express.json({ limit: "30mb" }));
 // app.use(express.urlencoded());
 app.use(
   cors({
-    origin: ["https://blen-app.netlify.app/", "http://localhost:3000"],
+    origin: [
+      "https://blen-app.netlify.app/",
+      "http://localhost:3000",
+      "https://project-3-production.up.railway.app/",
+    ],
   })
 );
 app.use(auth);
