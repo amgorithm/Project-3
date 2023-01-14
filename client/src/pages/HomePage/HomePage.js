@@ -166,7 +166,9 @@ export default function HomePage() {
                     {post.image ? (
                       <img
                         // src={require(`${BASE_URL}/uploads/${post.image}`)}
-                        src="https://blen-backend.onrender.com/uploads/blog-stock.jpeg"
+                        src={
+                          "https://blen-backend.onrender.com/uploads/blog-stock.jpeg"
+                        }
                         alt={post.title}
                       />
                     ) : null}
