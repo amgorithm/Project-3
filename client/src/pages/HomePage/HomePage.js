@@ -19,6 +19,7 @@ export default function HomePage() {
       const response = await fetch(BASE_URL + "/api/blogs");
       const blogs = await response.json();
       setBlogs(blogs);
+      console.log(blogs);
     } catch (err) {
       console.log(err);
     }
@@ -164,7 +165,7 @@ export default function HomePage() {
                     </h2>
                     {post.image ? (
                       <img
-                        src={`https://blen-backend.onrender.com/uploads/${post.image}`}
+                        src={`${BASE_URL}/uploads/${post.image}`}
                         alt={post.title}
                       />
                     ) : null}
