@@ -57,7 +57,9 @@ async function createBlog(req, res, next) {
     const data = req.body;
     if (req.file) {
       filePath = req.file.path;
-      data.image = filePath;
+      fileName = req.file.fileName;
+      console.log("this is the name and path", fileName, filePath);
+      // data.image = fileName;
     }
     let currentUser = await User.findById(userId);
     data.author = userId;
