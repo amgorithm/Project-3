@@ -15,7 +15,7 @@ const NavBar = () => {
       >
         {user.name}
       </Link>
-{/* 
+      {/* 
       <p className="seperate">|</p> */}
       <Link to="/blog/new" style={{ color: "#BCBCBC" }}>
         <h2 className="create-blog">Create</h2>
@@ -30,6 +30,7 @@ const NavBar = () => {
       >
         Log out
       </NavLink>
+      <Link to="/test">TEST</Link>
     </div>
   ) : (
     <div className="navbar-logged-out">
@@ -47,6 +48,7 @@ const NavBar = () => {
       >
         Sign up
       </NavLink>
+      <Link to="/test">TEST</Link>
     </div>
   );
 

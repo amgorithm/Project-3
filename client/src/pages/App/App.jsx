@@ -15,6 +15,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import CreateBlogPage from "../createBlogPage/CreateBlogPage";
 import EditBlogPage from "../EditBlogPage/EditBlogPage";
 import ProfileEdit from "../ProfileEdit/ProfileEdit";
+import TestUpload from "../TestUpload/TestUpload";
 
 function App() {
   const { refreshAuth } = useUser();
@@ -50,6 +51,7 @@ function App() {
         <Route exact path="/login" element={<LoginPage />} />
         <Route exact path="/upload" element={<ImageUpload />} />
         <Route exact path="/user" element={<UserBlogs />} />
+        <Route exact path="/test" element={<TestUpload />} />
         <Route
           exact
           path="/protected"
