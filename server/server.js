@@ -38,6 +38,7 @@ app.use(
       "https://blen-app.netlify.app",
       "http://localhost:3000",
       "https://blen-backend.up.railway.app",
+      "https://api.cloudinary.com/v1_1/ds0xop14b/image/upload",
     ],
   })
 );
