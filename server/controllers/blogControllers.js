@@ -86,19 +86,20 @@ async function deleteBlog(req, res, next) {
     const blog = await Blog.findById(req.params.id);
     if (!blog) {
       return res.status(400).json({ error: true, message: "Blog not found." });
-    } else {
-      if (blog.image !== "") {
-        fs.unlink(blog.image, (err) => {
-          if (err) throw err;
-          console.log("successfully deleted image");
-        });
-        await Blog.findByIdAndDelete(req.params.id);
-        res.status(204).send();
-      } else {
-        await Blog.findByIdAndDelete(req.params.id);
-        res.status(204).send();
-      }
     }
+
+    // else {
+    //   if (blog.image !== "") {
+    //     fs.unlink(blog.image, (err) => {
+    //       if (err) throw err;
+    //       console.log("successfully deleted image");
+    //     });
+    //     await Blog.findByIdAndDelete(req.params.id);
+    //     res.status(204).send();
+    //   } else {
+
+    await Blog.findByIdAndDelete(req.params.id);
+    res.status(204).send();
   } catch (error) {
     next(error);
   }
