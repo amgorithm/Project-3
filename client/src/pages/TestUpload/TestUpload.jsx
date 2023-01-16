@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TestUpload() {
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
 
   // const [state, setState] = useState({
   //   imgURL: "",
