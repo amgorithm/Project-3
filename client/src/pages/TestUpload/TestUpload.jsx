@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 function TestUpload() {
   // const [image, setImage] = useState("");
@@ -51,7 +51,7 @@ function TestUpload() {
   // );
   // myWidget.open();
   // }
-  console.log(image);
+
   return (
     <div>
       {/* <input type="file" onChange={(e) => setImage(e.target.files[0])} />
