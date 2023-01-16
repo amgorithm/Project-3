@@ -110,7 +110,7 @@ function DetailPage() {
   //     fetchBlog();
   //   });
   // };
-
+  console.log(blog);
   return (
     <div>
       {blog ? (
@@ -137,10 +137,7 @@ function DetailPage() {
 
           {blog.image ? (
             <div className="blog-img-container">
-              <img
-                src={`https://blen-backend.up.railway.app/uploads/${blog.image}`}
-                alt={blog.title}
-              />
+              <img src={blog.image} alt={blog.title} />
             </div>
           ) : null}
 

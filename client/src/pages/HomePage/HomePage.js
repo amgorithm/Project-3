@@ -166,7 +166,7 @@ export default function HomePage() {
                     {post.image ? (
                       <img
                         // src={require(`${BASE_URL}/uploads/${post.image}`)}
-                        src={`https://blen-backend.up.railway.app/uploads/${post.image}`}
+                        src={post.image}
                         alt={post.title}
                       />
                     ) : null}
@@ -232,10 +232,7 @@ export default function HomePage() {
                     </Link>
                   </h2>
                   {post.image ? (
-                    <img
-                      src={`https://blen-backend.up.railway.app/uploads/${post.image}`}
-                      alt={post.title}
-                    />
+                    <img src={post.image} alt={post.title} />
                   ) : null}
                   <p className="blog-description">
                     {post.description.substring(0, 300)}...
