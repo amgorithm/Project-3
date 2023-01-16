@@ -110,7 +110,7 @@ function DetailPage() {
   //     fetchBlog();
   //   });
   // };
-  console.log(blog);
+
   return (
     <div>
       {blog ? (
