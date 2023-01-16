@@ -45,14 +45,11 @@ function CreateBlogPage() {
           if (!error && result && result.event === "success") {
             // console.log("Done! Here is the image info: ", result.info);
             setBlog({ ...blog, image: result.info.secure_url });
-
-            console.log(blog);
           }
         }
       )
       .open();
   }
-  // console.log(blog);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -196,6 +193,7 @@ function CreateBlogPage() {
           )}
 
           <div className="image-input-container">
+            <label>Upload Image</label>
             {/* <label>Upload Image</label>
             <input
               type="file"

@@ -30,7 +30,6 @@ const NavBar = () => {
       >
         Log out
       </NavLink>
-      <Link to="/test">TEST</Link>
     </div>
   ) : (
     <div className="navbar-logged-out">
@@ -48,7 +47,6 @@ const NavBar = () => {
       >
         Sign up
       </NavLink>
-      <Link to="/test">TEST</Link>
     </div>
   );
 
