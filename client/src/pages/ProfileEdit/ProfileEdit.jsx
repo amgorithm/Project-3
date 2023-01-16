@@ -13,8 +13,6 @@ const initialProfileDataObject = {
 };
 
 function ProfileEdit() {
-  // const { user } = useUser();
-
   const { userID } = useParams();
 
   let navigate = useNavigate();
