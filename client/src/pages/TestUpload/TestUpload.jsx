@@ -35,22 +35,22 @@ function TestUpload() {
   //   console.log(data);
   // };
 
-  function handleOpenWidget() {
-    // var myWidget = window.cloudinary.createUploadWidget(
-    //   {
-    //     cloudName: "ds0xop14b",
-    //     uploadPreset: "eetbowkl",
-    //   },
-    //   (error, result) => {
-    //     if (!error && result && result.event === "success") {
-    //       // console.log("Done! Here is the image info: ", result.info);
-    //       setImage({ ...image, image: result.info.secure_url });
-    //       console.log(image);
-    //     }
-    //   }
-    // );
-    // myWidget.open();
-  }
+  // function handleOpenWidget() {
+  // var myWidget = window.cloudinary.createUploadWidget(
+  //   {
+  //     cloudName: "ds0xop14b",
+  //     uploadPreset: "eetbowkl",
+  //   },
+  //   (error, result) => {
+  //     if (!error && result && result.event === "success") {
+  //       // console.log("Done! Here is the image info: ", result.info);
+  //       setImage({ ...image, image: result.info.secure_url });
+  //       console.log(image);
+  //     }
+  //   }
+  // );
+  // myWidget.open();
+  // }
   console.log(image);
   return (
     <div>
