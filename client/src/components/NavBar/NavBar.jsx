@@ -52,9 +52,9 @@ const NavBar = () => {
 
   return (
     <div className="navBar">
-      <Link to="/" style={{ color: "#fa9500" }}>
+      <a href="/" style={{ color: "#fa9500" }}>
         <h1 className="blen">Blen </h1>
-      </Link>
+      </a>
       {nav}
     </div>
   );

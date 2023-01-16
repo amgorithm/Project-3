@@ -162,26 +162,6 @@ img {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  @media only screen and (min-width: 768px) {
-    .profile-page {
-      margin-left: 65px;
-      margin-right: 65px;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    .profile-page {
-      margin-left: 100px;
-      margin-right: 100px;
-    }
-  }
-
-  @media only screen and (min-width: 1200px) {
-    .profile-page {
-      margin-left: 135px;
-      margin-right: 135px;
-    }
-  }
 }
 
 .author-only {

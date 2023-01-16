@@ -30,7 +30,8 @@ body {
   height: calc(100vh - 200px);
   width: 100%;
   margin: 30px 0;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../../images/andrew-neel-cckf4TsHAuw-unsplash.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../../images/andrew-neel-cckf4TsHAuw-unsplash.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -72,7 +73,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: flex-start;  
+  align-items: flex-start;
   color: orange;
   text-decoration: none;
   font-weight: bold;
@@ -93,8 +94,6 @@ body {
   margin: 0 10px;
 }
 
-
-
 .main-flex {
   display: flex;
   flex-direction: column;
@@ -106,14 +105,11 @@ body {
   border: solid 2px #dbdbdb;
   padding: 10px;
   border-radius: 5px;
-  width: 100%;
+  max-width: 1385px;
+  align-self: center;
 }
 
-
-
-
 .article-post {
-  
   border: solid 2px #dbdbdb;
   display: flex;
   flex-direction: column;
