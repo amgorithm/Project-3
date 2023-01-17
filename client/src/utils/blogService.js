@@ -1,6 +1,5 @@
 // import { json } from "docker/src/languages.js";
 import tokenService from "./tokenService.js";
-// const BASE_URL = "https://blogging-platform-365219.ew.r.appspot.com";
 import { BASE_URL } from "./constants.js";
 
 export const getBlogs = async () => {
