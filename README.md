@@ -83,9 +83,11 @@ In the user controllers, I added a function that handles user’s updating their
 Next, I connected the controllers to their respective routes and ensured that the authorisation checking middleware (which checks for a user logged in) was inputted for post, patch, and delete
 
 Blogs route:
+
 ![Blog route](./client/src/images/readme/blog-route.png)
 
 Users route:
+
 ![User route](./client/src/images/readme/user-route.png)
 
 On the client side, I created a blog service utility file that holds the fetch request functions to the server that retrieves, creates, updates, and deletes blog posts. I also added a fetch request function that updates a user profile in the user service utility file.
