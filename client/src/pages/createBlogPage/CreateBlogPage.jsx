@@ -53,7 +53,6 @@ function CreateBlogPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
     const formData = new FormData();
     Object.keys(blog).forEach((key) => {
       if (blog[key].constructor === Array) {
