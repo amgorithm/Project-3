@@ -51,15 +51,21 @@ async function getUserBlog(req, res, next) {
 }
 
 async function createBlog(req, res, next) {
+  console.time("Controller check");
   let userId = req.user._id;
   try {
     const data = req.body;
+    console.timeLog("Controller check");
     let currentUser = await User.findById(userId);
+    console.timeLog("Controller check");
     data.author = userId;
     const newBlog = await Blog.create(data);
+    console.timeLog("Controller check");
     currentUser.blogs.push(newBlog._id);
     await currentUser.save();
+    console.timeLog("Controller check");
     res.json(newBlog);
+    console.timeEnd("Controller check");
   } catch (error) {
     res.status(400).json(error);
   }
