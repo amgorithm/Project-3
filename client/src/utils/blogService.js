@@ -49,7 +49,6 @@ export const updateABlog = async (blog) => {
 
 export const createABlog = async (blog) => {
   try {
-    console.time("Service check");
     const token = tokenService.getToken();
     let res = await fetch(`${BASE_URL}/api/blogs`, {
       method: "POST",
@@ -58,8 +57,6 @@ export const createABlog = async (blog) => {
       },
       body: blog,
     });
-    console.timeLog("Service check");
-    console.timeEnd("Service check");
     return res.json();
   } catch (error) {
     console.log(error);

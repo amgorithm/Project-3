@@ -52,10 +52,8 @@ function CreateBlogPage() {
   }
 
   async function handleSubmit(e) {
-    console.time("Submit check");
     e.preventDefault();
     const formData = new FormData();
-    console.timeLog("Submit check");
     Object.keys(blog).forEach((key) => {
       if (blog[key].constructor === Array) {
         blog[key].forEach((item) => {
@@ -65,10 +63,9 @@ function CreateBlogPage() {
         formData.append(key, blog[key]);
       }
     });
-    console.timeLog("Submit check");
+
     try {
       createABlog(formData).then((res) => {
-        console.timeEnd("Submit check");
         navigate("/");
       });
     } catch (err) {
