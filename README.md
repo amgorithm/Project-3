@@ -33,7 +33,7 @@ The project's technical requirements were as follows:
 
 The Blen application can be accessed here: https://blen-app.netlify.app/
 
-Please note: the website’s backend is hosted on Render’s free tier, which limits speed. Navigating and performing CRUD functionalities on the application is very slow, **especially** on your first visit as the site requires “warming up” before it becomes _marginally_ faster. When you first visit the site, the homepage will take around 30 seconds to load blog posts and you could wait up to 1.5 minutes before being navigated back to the homepage after creating a blog post. It’s therefore important not to resend a fetch request by re-clicking a button/link.
+Please note: the website’s backend is hosted on Render’s free tier, which limits speed. Navigating and performing CRUD functionalities on the application is therefore slower. The blogs listed in the homepage take around 30 seconds to load and performing CRUD functions can take up to 10 seconds. It’s therefore important not to resend a fetch request by re-clicking a button/link.
 
 ## Getting Started/Code Installation
 
