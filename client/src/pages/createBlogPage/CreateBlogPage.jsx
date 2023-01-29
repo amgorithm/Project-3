@@ -45,14 +45,60 @@ function CreateBlogPage() {
           if (!error && result && result.event === "success") {
             // console.log("Done! Here is the image info: ", result.info);
             setBlog({ ...blog, image: result.info.secure_url });
+
+            console.log(blog);
           }
         }
       )
       .open();
   }
 
+  // let handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   const formData = new FormData();
+  //   Object.keys(blog).forEach(key => {
+  //     if (blog[key].constructor === Array) {
+  //       blog[key].forEach(item => {
+  //         formData.append(key, item)
+  //       })
+  //     } else {
+  //       formData.append(key, blog[key])
+  //           if (blog.image !== "") {
+  //             const formData = new FormData();
+  //             formData.append("file", blog.image);
+  //             formData.append("upload_preset", "xw7vo9bm");
+
+  //             const options = {
+  //               method: "POST",
+  //               body: formData,
+  //             };
+
+  //             return fetch(
+  //               "https://api.cloudinary.com/v1_1/dnsbeaa7f/image/upload",
+  //               options
+  //             )
+  //               .then((res) => res.json())
+  //               .then((res) =>
+  //                 setBlog((prev) => ({
+  //                   setBlog: {
+  //                     ...prev,
+  //                     image: res.secure_url,
+  //                   },
+  //                 }))
+  //               )
+  //               .catch((err) => console.log(err));
+  //           }
+  //     }
+  //   })
+
+  //     createABlog(formData).then(res => {
+  //     // navigate("/")
+  //     })
+  // }
+
   async function handleSubmit(e) {
     e.preventDefault();
+
     const formData = new FormData();
     Object.keys(blog).forEach((key) => {
       if (blog[key].constructor === Array) {
@@ -192,16 +238,8 @@ function CreateBlogPage() {
           )}
 
           <div className="image-input-container">
-            <label>Upload Image</label>
-            {/* <label>Upload Image</label>
-            <input
-              type="file"
-              name="image"
-              className="image-input"
-              onChange={(e) =>
-                setBlog((state) => ({ ...state, image: e.target.files[0] }))
-              }
-            /> */}
+            {/* <label>Upload Image</label> */}
+            {/* <input type="file" name="image" className='image-input' onChange={(e) => {setBlog(state => ({ ...state, image:  e.target.files[0]}))}} /> */}
             <button onClick={handleImageUpload}>Add image</button>
           </div>
 
@@ -213,7 +251,6 @@ function CreateBlogPage() {
               type="Submit"
               disabled={!formIsValid}
               className={!formIsValid ? "not-allowed" : "allowed"}
-              onClick={handleSubmit}
             >
               CREATE NEW BLOG
             </button>
