@@ -101,7 +101,9 @@ function DetailPage() {
             </div>
           ) : null}
         </article>
-      ) : null}
+      ) : (
+        <p className="loading-msg">Loading, please wait.</p>
+      )}
     </div>
   );
 }
