@@ -52,13 +52,9 @@ async function getUserBlog(req, res, next) {
 
 async function createBlog(req, res, next) {
   let userId = req.user._id;
-  let filePath;
+
   try {
     const data = req.body;
-    // if (req.file) {
-    //   filePath = req.file.filename;
-    //   data.image = filePath;
-    // }
     let currentUser = await User.findById(userId);
     data.author = userId;
     const newBlog = await Blog.create(data);
@@ -87,17 +83,8 @@ async function deleteBlog(req, res, next) {
     if (!blog) {
       return res.status(400).json({ error: true, message: "Blog not found." });
     } else {
-      // if (blog.image !== "") {
-      //   fs.unlink(blog.image, (err) => {
-      //     if (err) throw err;
-      //     console.log("successfully deleted image");
-      //   });
-      //   await Blog.findByIdAndDelete(req.params.id);
-      //   res.status(204).send();
-      // } else {
       await Blog.findByIdAndDelete(req.params.id);
       res.status(204).send();
-      // }
     }
   } catch (error) {
     next(error);
