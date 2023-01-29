@@ -55,7 +55,7 @@ async function createBlog(req, res, next) {
 
   try {
     const data = req.body;
-    let currentUser = await User.find({ _id: userId }).select({ blogs: 1 });
+    let currentUser = await User.find({ _id: userId }, { blogs: 1 });
     data.author = userId;
     const newBlog = await Blog.create(data);
     currentUser.blogs.push(newBlog._id);
