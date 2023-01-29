@@ -152,8 +152,6 @@ Although I’m still very much in the early stages of learning about the backend
 
 No bugs to report in the profile, profile edit, detail, and user blogs pages!
 
-Posting a blog post can take around 1 minute and 20 seconds from clicking the post button to being navigated back to the homepage. The code for the create blog post functionality is the same as my colleagues, who are strangely not experiencing this slowness. I've spent an additional week trying to debug this issue, including seeking help on Stack Overflow but am yet to come across a solution. As of this time (January 2023), this bug fix has been placed on the back burner as I intend to revisit it at a later date.
-
 ### Future Improvements
 
 I hope to further enhance the application by adding the ability to follow other bloggers, add a featured blog post to your profile, and have a favourite blog list.

@@ -50,22 +50,6 @@ async function getUserBlog(req, res, next) {
   }
 }
 
-// async function createBlog(req, res, next) {
-//   let userId = req.user._id;
-
-//   try {
-//     const data = req.body;
-//     let currentUser = await User.findById(userId);
-//     data.author = userId;
-//     const newBlog = await Blog.create(data);
-//     currentUser.blogs.push(newBlog._id);
-//     await currentUser.save();
-//     res.json(newBlog);
-//   } catch (error) {
-//     res.status(400).json(error);
-//   }
-// }
-
 async function createBlog(req, res, next) {
   const userId = req.user._id;
   const data = req.body;
