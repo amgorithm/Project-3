@@ -66,6 +66,22 @@ async function createBlog(req, res, next) {
   }
 }
 
+async function createBlog(req, res, next) {
+  const userId = req.user._id;
+  const data = req.body;
+
+  try {
+    const currentUser = await User.findById(userId, "blogs");
+    data.author = userId;
+    const newBlog = await Blog.create(data);
+    currentUser.blogs.push(newBlog._id);
+    await currentUser.save();
+    res.json(newBlog);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+}
+
 async function updatedBlog(req, res, next) {
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
