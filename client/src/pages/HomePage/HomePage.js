@@ -12,7 +12,7 @@ export default function HomePage() {
     getBlogs();
     getTags();
     // eslint-disable-next-line
-  }, [blogs]);
+  }, []);
 
   async function getBlogs() {
     try {
