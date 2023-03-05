@@ -48,6 +48,8 @@ To run the project following download, enter the following commands in your term
 1. In the client folder run `npm install` and then `npm start`
 2. In the server folder run `npm install` and then `npm start`
 
+You will need to create a .env file using the environment variables outlined in the .env template.
+
 ## Planning
 
 Following several conversations, we agreed to build a blogging-based website split into four broad sections; homepage, detail page, create and edit page, and profile page. We each then chose which section(s) to build and used Excalidraw to sketch our plans.
