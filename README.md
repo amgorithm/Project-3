@@ -33,6 +33,12 @@ The project's technical requirements were as follows:
 
 The Blen application can be accessed here: https://blen-app.netlify.app/
 
+To use the application without having to signup, use this test user:
+
+Email: hana@email.com
+
+Password: pass
+
 Please note: the website’s backend is hosted on Render’s free tier, which limits speed. Navigating and performing CRUD functionalities on the application is therefore slower. The blogs listed in the homepage take around 30 seconds to load and performing CRUD functions can take up to 10 seconds. It’s therefore important not to resend a fetch request by re-clicking a button/link.
 
 ## Getting Started/Code Installation
