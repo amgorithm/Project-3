@@ -48,7 +48,7 @@ To run the project following download, enter the following commands in your term
 1. In the client folder run `npm install` and then `npm start`
 2. In the server folder run `npm install` and then `npm start`
 
-You will need to create a .env file using the environment variables outlined in the .env template.
+You will need to create a .env file with the following environment variables: DATABASE_URL, PORT, and SECRET.
 
 ## Planning
 
