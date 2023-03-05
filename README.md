@@ -2,7 +2,7 @@
 
 # Description
 
-For the third project on General Assembly’s Software Engineering course, we were divided into groups and assigned two weeks to create a full-stack MERN application. Our group included me, [Manohisoa](https://github.com/ManohisoaVicky), [Mohamed](https://github.com/Mohamed1419), and [Angeline](https://github.com/angelinewang). We decided to build a blogging website specifically geared toward software engineers. The website was to be named ‘Blen’; a merge between the first two letters of blogger and engineer.
+For the third project on General Assembly’s Software Engineering course, we were divided into groups and assigned two weeks to create a full-stack application using MongoDB, Express.js, Node.js, and React (MERN). Our group included me, [Manohisoa](https://github.com/ManohisoaVicky), [Mohamed](https://github.com/Mohamed1419), and [Angeline](https://github.com/angelinewang). We decided to build a blogging website specifically geared toward software engineers. The website was to be named ‘Blen’; a merge between the first two letters of blogger and engineer.
 
 After the project ended, Mano, Mohamed and I continued to work on ensuring full CRUD functionality and consistency in styling, debugging, and deployment. These extra tasks when added took around 4 full extra days.
 
