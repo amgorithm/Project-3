@@ -88,7 +88,7 @@ In the user controllers, I added a function that handles user’s updating their
 
 ![User controller](./client/src/images/readme/user-controller.png)
 
-Next, I connected the controllers to their respective routes and ensured that the authorisation checking middleware (which checks for a user logged in) was inputted for post, patch, and delete
+Next, I connected the controllers to their respective routes and ensured that the authorisation checking middleware (which checks for a user logged in) was inputted for post, patch, and delete.
 
 Blogs route:
 
